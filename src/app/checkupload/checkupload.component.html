@@ -1,3 +1,24 @@
-<p>
-  checkupload works!
-</p>
+<input style="display: none" type="file"  accept='image/*' (change)="frontOfCheck($event)" capture #frontcheck>
+<input style="display: none" type="file"  accept='image/*' (change)="backOfCheck($event)" capture #backCheck>
+
+<h4>Front of the Check </h4>
+<div class="card w-100">
+    <div class="checkImage">
+        <img src="{{frontChkImagepath}}" [ngClass]="{'img-fluid': true, 'large': frontChkLarge}"  (click)="frontcheck.click()"
+            alt="cameraIcon" *ngIf="!frontChkImageUrl">
+<img [src]="frontChkImageUrl" class="displayCheck"  *ngIf="frontChkImageUrl">
+    </div>
+</div>
+
+<h4>Back of the Check</h4>
+<div class="card w-100">
+    <div class="checkImage">
+        <img src="{{backChkImagepath}}" class="img-fluid {{this}}"  (click)="backCheck.click()"
+            alt="cameraIcon" *ngIf="!backChkImageUrl">
+            <img [src]="backChkImageUrl" class="displayCheck" *ngIf="backChkImageUrl">
+    </div>
+</div>
+
+<span *ngIf="isErr" class="error">Unable to read the check. Please try again</span>
+<button type="button" class="btn btn-dark  float-right mt-4" (click)="navigateNext()">Next</button>
+<button type="button" class="btn btn-dark  float-left mt-4" (click)="navigateback()">Back</button>

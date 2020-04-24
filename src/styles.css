@@ -1,1 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+font-family: 'Roboto Mono',monospace;
+}
+
+.btn-dark{
+    background-color: #4543e4;
+    border-color: #a09bf1;
+}
+
+@media (max-width: 576px) {
+ h4{
+     font-size: 1.1rem;
+ }
+ body{
+     font-size: 13px;
+
+ }
+
+}
+
+input.ng-invalid.ng-touched {
+  border-color: #dc3545;
+}
+
+.warn-req-field {
+  color: #f0ad4e;
+}
+
+input.ng-invalid.ng-dirty {
+  border-color: #f0ad4e;
+}
+
+.red-req-field {
+  color: #dc3545;
+}
+
+.form-group label.control-label:after {
+  content: "*";
+  color: red;
+}
+
+

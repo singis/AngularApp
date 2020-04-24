@@ -1,3 +1,66 @@
-<p>
-  home works!
-</p>
+
+<h3 class="mb-4">Pay by check</h3>
+<hr>
+<form [formGroup]="payByCheckForm" (ngSubmit)="onSubmit()">
+  
+  <div class="form-group row">
+    <label for="lastName" class="col-5 col-form-label">Last Name</label>
+    <div class="col-7">
+      <input type="text" class="form-control" formControlName="lastName" id="lastName">
+        <span *ngIf=" !payByCheckForm.get('lastName').valid && payByCheckForm.get('lastName').touched"
+          class="red-req-field">
+          Last Name is required!
+        </span>
+    </div>
+  </div>
+
+    <div class="form-group row">
+      <label for="ssn" class="col-5 col-form-label">Last 4 of SSN</label>
+      <div class="col-7">
+        <input type="text" class="form-control" formControlName="ssn" id="ssn">
+
+          <span *ngIf=" !payByCheckForm.get('ssn').dirty && payByCheckForm.get('ssn').touched" class="red-req-field">
+            SSN is required!
+          </span>
+          <span class="warn-req-field" *ngIf=" payByCheckForm.get('ssn').dirty&& payByCheckForm.get('ssn').errors">Only (4) DIGITS
+            are allowed</span> 
+          
+          </div>
+    </div>
+
+      <div class="form-group row">
+        <label for="cardNumber" class="col-5 col-form-label">Card Number</label>
+        <div class="col-7">
+          <input type="text" class="form-control" formControlName="cardNumber" id="cardNumber">
+            <span *ngIf=" !payByCheckForm.get('cardNumber').dirty && payByCheckForm.get('cardNumber').touched"
+              class="red-req-field">
+              Card Number is required!
+            </span>
+            <span class="warn-req-field" *ngIf=" payByCheckForm.get('cardNumber').dirty&& payByCheckForm.get('cardNumber').errors">Only (16) DIGITS
+              are allowed</span>
+        </div>
+      </div>
+
+        <div class="form-group row">
+          
+          <label for="amount" class="col-5 col-form-label">Amount</label>
+          <div class="col-7">
+            <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">$</div>
+              <input type="number" class="form-control" formControlName="amount" id="amount">
+             
+            </div>
+            </div>
+              <span *ngIf=" !payByCheckForm.get('amount').dirty && payByCheckForm.get('amount').touched" class="red-req-field">
+                Amount is required!
+              </span>
+                
+          </div>
+        </div>
+        <span class="red-req-field" *ngIf="isError">Please fix input Errors</span>
+        <button type="submit" class="btn btn-dark float-right mt-4"  >Next</button>
+
+   
+</form>
+
