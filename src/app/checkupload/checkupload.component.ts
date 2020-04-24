@@ -33,6 +33,7 @@ export class CheckuploadComponent implements OnInit {
     this.frontChkLarge = true;
     Tesseract.recognize(file).then(() => {})
     .then(val => {
+      console.log(val);
       const pattern = /\n/;
       const index = val.text.search(pattern);
       this.checkNumber = val.text.slice(0, index)}).finally(() => {

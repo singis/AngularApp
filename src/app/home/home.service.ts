@@ -15,28 +15,34 @@ export class HomeService {
   private cardNumSource = new BehaviorSubject<Number>(null);
   private payAmountSource = new BehaviorSubject<String>(null);
   private chkNumSource = new BehaviorSubject<String>(null);
+  private refNumSource = new BehaviorSubject<String>(null);
 
   userName = this.userNameSource.asObservable();
   ssn = this.ssnSource.asObservable();
   cardNum = this.cardNumSource.asObservable();
   payAmount = this.payAmountSource.asObservable();
   chkNum = this.chkNumSource.asObservable();
+  refNum = this.refNumSource.asObservable();
 
 
 
 
 
-shareUserDetails(userName: String, ssn: Number, cardNum: Number, payAmount: String) {
-  this.userNameSource.next(userName);
-  this.ssnSource.next(ssn);
-  this.cardNumSource.next(cardNum);
-  this.payAmountSource.next(payAmount);
-}
+  shareUserDetails(userName: String, ssn: Number, cardNum: Number, payAmount: String) {
+    this.userNameSource.next(userName);
+    this.ssnSource.next(ssn);
+    this.cardNumSource.next(cardNum);
+    this.payAmountSource.next(payAmount);
+  }
 
 
   shareCheckNumber(chkNum: String) {
-    this.chkNumSource.next(chkNum);    
+    this.chkNumSource.next(chkNum);
   }
 
-  
+
+  shareRefNum(refId: String) {
+    this.refNumSource.next(refId);
+  }
+
 }
